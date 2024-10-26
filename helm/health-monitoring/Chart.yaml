@@ -1,0 +1,4 @@
+apiVersion: v2
+name: health-monitoring
+description: A Helm chart for health wearables monitoring
+version: 0.1.0
