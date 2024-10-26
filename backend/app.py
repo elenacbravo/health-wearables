@@ -1,10 +1,10 @@
 from flask import Flask, jsonify, request
 from event_bus import EventBus
-from models import db, HealthWearable  
+from models import db, HealthWearable
 from config import Config
 from database import init_db
 import logging
-
+from blood_pressure_monitor import BloodPressureMonitor 
 
 logging.basicConfig(filename='logs/app.log', level=logging.INFO)
 
@@ -12,6 +12,7 @@ app = Flask(__name__)
 app.config.from_object(Config)
 
 event_bus = EventBus()
+blood_pressure_monitor = BloodPressureMonitor()  
 
 @app.route('/wearables', methods=['POST'])
 def register_wearable():
